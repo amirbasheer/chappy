@@ -1,12 +1,14 @@
 'use strict';
 let express = require('express'),
     bodyParser = require('body-parser'),
+    http = require('http'),
     app = express();
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.listen(3002, () => console.log('Example app listening on port 3002!'));
+var server = app.listen(3002);
+// app.listen(3002, () => console.log('Example app listening on port 3002!'));
 
 app.get('/', (req, res) => res.send('Hello World!'));
 
